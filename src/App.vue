@@ -1,15 +1,14 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello" :age="123"></HelloWorld>
+  <Hello></Hello>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
+import Hello from './components/Hello'
 export default defineComponent({
   name: 'App',
   components: {
-    HelloWorld
+    Hello
   }
 })
 </script>

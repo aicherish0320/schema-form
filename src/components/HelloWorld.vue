@@ -1,11 +1,12 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}-{{ age }}</h1>
+    <button @click="handleClick">Click {{ count }}-{{ double }}</button>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, reactive, ref, toRefs } from 'vue'
 
 const PropsType = {
   msg: String,
@@ -18,8 +19,21 @@ const PropsType = {
 export default defineComponent({
   name: 'HelloWorld',
   props: PropsType,
-  mounted() {
-    this.age
+  setup(props, { slots, emit, attrs }) {
+    const count = ref(1)
+    const state = reactive({
+      double: 2
+    })
+    const handleClick = () => {
+      count.value += 1
+      state.double += 2
+    }
+    return {
+      count,
+      state,
+      ...toRefs(state),
+      handleClick
+    }
   }
 })
 </script>
