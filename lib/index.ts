@@ -1,8 +1,3 @@
-import { defineComponent, h } from 'vue'
+import SchemaForm from './SchemaForm'
 
-export default defineComponent({
-  props: ['schema', 'uiSchema', 'onChange', 'contextRef', 'value'],
-  setup() {
-    return () => h('div', 'this is form')
-  }
-})
+export default SchemaForm
