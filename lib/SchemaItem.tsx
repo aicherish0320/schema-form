@@ -2,6 +2,7 @@ import { computed, defineComponent } from 'vue'
 import NumberField from './fields/NumberField'
 import StringField from './fields/StringField'
 import ObjectField from './fields/ObjectField'
+import ArrayField from './fields/ArrayField'
 import { retrieveSchema } from './utils'
 import { FieldPropsDefine, Schema, SchemaTypes } from './types'
 
@@ -17,7 +18,6 @@ export default defineComponent({
 
     return () => {
       const schema = props.schema as Schema
-      console.log(props)
 
       const retrievedSchema = retrievedSchemaRef.value
 
@@ -28,12 +28,14 @@ export default defineComponent({
         case SchemaTypes.STRING:
           Component = StringField
           break
-
         case SchemaTypes.NUMBER:
           Component = NumberField
           break
         case SchemaTypes.OBJECT:
           Component = ObjectField
+          break
+        case SchemaTypes.ARRAY:
+          Component = ArrayField
           break
         default:
           console.warn(`${type} is no supported`)

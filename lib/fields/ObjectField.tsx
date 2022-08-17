@@ -34,7 +34,7 @@ export default defineComponent({
         <SchemaItem
           schema={properties[k]}
           rootSchema={rootSchema}
-          value={currentValue}
+          value={currentValue[k]}
           key={index}
           onChange={(v: any) => handleObjectFieldChange(k, v)}
         />
