@@ -1,15 +1,24 @@
-import { defineComponent } from 'vue'
+import { computed, defineComponent } from 'vue'
 import NumberField from './fields/NumberField'
 import StringField from './fields/StringField'
-
+import { retrieveSchema } from './utils'
 import { FieldPropsDefine, Schema, SchemaTypes } from './types'
 
 export default defineComponent({
   name: 'SchemaItem',
   props: FieldPropsDefine,
   setup(props) {
+    const retrievedSchemaRef = computed(() => {
+      const schema = props.schema as Schema
+      const { rootSchema, value } = props
+      return retrieveSchema(schema, rootSchema, value)
+    })
+
     return () => {
       const schema = props.schema as Schema
+
+      const retrievedSchema = retrievedSchemaRef.value
+
       const type = schema.type
 
       let Component: any
@@ -26,7 +35,7 @@ export default defineComponent({
           console.warn(`${type} is no supported`)
       }
 
-      return <Component {...props} />
+      return <Component {...props} schema={retrievedSchema} />
     }
   }
 })
