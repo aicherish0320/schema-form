@@ -1,10 +1,18 @@
+import { FieldPropsDefine } from '../types'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'NumberField',
-  setup() {
+  props: FieldPropsDefine,
+  setup(props) {
     return () => {
-      return <h1>Number Field</h1>
+      return (
+        <input
+          type="number"
+          value={props.value}
+          onChange={(e: any) => props.onChange(e.target.value)}
+        />
+      )
     }
   }
 })
