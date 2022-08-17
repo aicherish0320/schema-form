@@ -17,6 +17,7 @@ export default defineComponent({
 
     return () => {
       const schema = props.schema as Schema
+      console.log(props)
 
       const retrievedSchema = retrievedSchemaRef.value
 

@@ -20,7 +20,7 @@ export interface Schema {
   default?: any
 
   properties?: {
-    [key: string]: Schema | { $ref: string }
+    [key: string]: Schema
   }
   items?: Schema | Schema[] | SchemaRef
   uniqueItems?: any
@@ -62,6 +62,6 @@ export const FieldPropsDefine = {
   },
   rootSchema: {
     type: Object as PropType<Schema>,
-    required: true
+    required: false
   }
 }

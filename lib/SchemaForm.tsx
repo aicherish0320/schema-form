@@ -1,6 +1,7 @@
 import { defineComponent, provide } from 'vue'
 import { FieldPropsDefine } from './types'
 import SchemaItem from './SchemaItem'
+import Test from './Test'
 import { SchemaFormContextKey } from './context'
 
 export default defineComponent({
@@ -11,7 +12,7 @@ export default defineComponent({
       props.onChange(v)
     }
 
-    const context = { SchemaItem }
+    const context = { SchemaItem, TestComp: Test }
     provide(SchemaFormContextKey, context)
 
     return () => {
