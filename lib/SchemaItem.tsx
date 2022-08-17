@@ -1,6 +1,7 @@
 import { computed, defineComponent } from 'vue'
 import NumberField from './fields/NumberField'
 import StringField from './fields/StringField'
+import ObjectField from './fields/ObjectField'
 import { retrieveSchema } from './utils'
 import { FieldPropsDefine, Schema, SchemaTypes } from './types'
 
@@ -30,7 +31,9 @@ export default defineComponent({
         case SchemaTypes.NUMBER:
           Component = NumberField
           break
-
+        case SchemaTypes.OBJECT:
+          Component = ObjectField
+          break
         default:
           console.warn(`${type} is no supported`)
       }
