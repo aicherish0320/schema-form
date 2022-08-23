@@ -5,32 +5,53 @@ export default {
     type: 'object',
     required: ['firstName', 'lastName'],
     properties: {
-      firstName: {
-        type: 'string',
-        default: 'Chunk'
-      },
-      lastName: {
-        type: 'string'
-      },
-      telephone: {
-        type: 'string',
-        minLength: 10
-      },
-      staticArray: {
-        type: 'array',
-        items: [
-          {
-            type: 'string'
-          },
-          {
-            type: 'number'
-          }
-        ]
-      },
-      singleTypeArray: {
+      // firstName: {
+      //   type: 'string',
+      //   default: 'Chunk'
+      // },
+      // lastName: {
+      //   type: 'string'
+      // },
+      // telephone: {
+      //   type: 'string',
+      //   minLength: 10
+      // },
+      // staticArray: {
+      //   type: 'array',
+      //   items: [
+      //     {
+      //       type: 'string'
+      //     },
+      //     {
+      //       type: 'number'
+      //     }
+      //   ]
+      // },
+      // singleTypeArray: {
+      //   type: 'array',
+      //   items: {
+      //     type: 'string'
+      //   }
+      // },
+      // singleTypeArray: {
+      //   type: 'array',
+      //   items: {
+      //     type: 'object',
+      //     properties: {
+      //       name: {
+      //         type: 'string'
+      //       },
+      //       age: {
+      //         type: 'number'
+      //       }
+      //     }
+      //   }
+      // }
+      multiSelectArray: {
         type: 'array',
         items: {
-          type: 'string'
+          type: 'string',
+          enum: ['123', '456', '789']
         }
       }
     }
@@ -54,7 +75,13 @@ export default {
     lastName: 'Norris',
     age: 75,
     bio: 'Roundhouse kicking asses since 1940',
-    password: 'noneed',
-    singleTypeArray: ['jack', 'tom', 'mary']
+    password: 'noneed'
+    // singleTypeArray: ['jack', 'tom', 'mary'],
+    // singleTypeArray: [
+    //   {
+    //     name: 'jack',
+    //     age: 25
+    //   }
+    // ]
   }
 }
